@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import request from '../Services/HttpRequests'
-import Timer from '../Components/Timer';
+import { TheGame } from '../Components/Quizz/TheGame';
+import { Results } from '../Components/Quizz/Results';
 
 const Quizz = () => {
 
@@ -10,34 +11,43 @@ const Quizz = () => {
     const [timer, setTimer] = useState()
 
     useEffect(() => {
-        request.getQuizz(id).then(res => {
-            setQuizz(res)
-            setTimer(res.timer_secs)
-        })
-        
-    }, [id])
-    const handleTimerChange = (ev) => {
-      console.log('ev.target.value', ev.target.value)
+
+        if (quizz.length === 0) {
+            request.getQuizz(id).then(res => {
+                setQuizz(res)
+                setTimer(res.timer_secs)
+            })
+        }
+        const x = timer > 0 && setInterval(() => setTimer(timer - 1), 1000);
+        return () => clearInterval(x);
+    }, [id, timer, quizz.length])
+
+    const handleAnswerChange = (ev) => {
+        console.log('ev.target.value', ev.target.value)
     }
 
-    return (
-        <div className="container mt-4">
-            <div className="row justify-content-between">
-                <div className="col-6">
-                    <h2 className="focus-in-expand"> {quizz.name}</h2>
+    if (!id) return <p>loading...</p>
+
+    else {
+        return (
+            <div className="container mt-4">
+                <div className="row justify-content-between">
+                    <div className="col-6">
+                        <h2 className="focus-in-expand"> {quizz.name}</h2>
+                    </div>
+                    <div className="col-4">
+                        <h4 className="mt-2">Aikaa jäljellä {timer} sekuntia!</h4>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <Timer time={quizz.timer_secs} handleTimerChange={handleTimerChange}/>
+                <div className="row justify-content-center">
+                    <div className="col-8">
+                        {timer > 0
+                            ? <TheGame id={id} handleAnswerChange={handleAnswerChange} />
+                            : <Results />}
+                    </div>
                 </div>
             </div>
-            <div className="row justify-content-center">
-                <div className="col-8">
-
-                </div>
-            </div>
-
-        </div>
-    )
+        )
+    }
 }
 export default Quizz
-

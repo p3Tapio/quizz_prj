@@ -1,5 +1,5 @@
 import React from 'react'
-import { bgImage } from '../Components/Styles/StyleObjects'
+//import { bgImage } from '../Components/Styles/StyleObjects'
 import '../App.css';
 
 const Home = () => {
