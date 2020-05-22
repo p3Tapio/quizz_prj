@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'quizz_app',
     'rest_framework',
     'corsheaders',
-
-
+    'django_mysql',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +57,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    
 ]
 ROOT_URLCONF = 'quizz_project.urls'
 
@@ -86,8 +86,12 @@ WSGI_APPLICATION = 'quizz_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quizz_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 REST_FRAMEWORK = {
