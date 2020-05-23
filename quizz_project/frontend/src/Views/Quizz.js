@@ -9,6 +9,7 @@ const Quizz = () => {
     const { id } = useParams()
     const [quizz, setQuizz] = useState([])
     const [timer, setTimer] = useState()
+    let timerStyle
 
     useEffect(() => {
 
@@ -20,34 +21,34 @@ const Quizz = () => {
         }
         const x = timer > 0 && setInterval(() => setTimer(timer - 1), 1000);
         return () => clearInterval(x);
+
     }, [id, timer, quizz.length])
 
     const handleAnswerChange = (ev) => {
         console.log('ev.target.value', ev.target.value)
     }
 
-    if (!id) return <p>loading...</p>
+    timerStyle = timer > 10 ? timerStyle = {} : timerStyle = { color: 'red' }
 
-    else {
-        return (
-            <div className="container mt-4">
-                <div className="row justify-content-between">
-                    <div className="col-6">
-                        <h2 className="focus-in-expand"> {quizz.name}</h2>
-                    </div>
-                    <div className="col-4">
-                        <h4 className="mt-2">Aikaa jäljellä {timer} sekuntia!</h4>
-                    </div>
+    return (
+        <div className="container mt-4">
+            <div className="row justify-content-between">
+                <div className="col-6">
+                    <h2 className="focus-in-expand"> {quizz.name}</h2>
                 </div>
-                <div className="row justify-content-center">
-                    <div className="col-8">
-                        {timer > 0
-                            ? <TheGame id={id} handleAnswerChange={handleAnswerChange} />
-                            : <Results />}
-                    </div>
+                <div className="col-4">
+                    {timer === 0 ? <></> : <h4 className="mt-2" style={timerStyle}>Aikaa jäljellä {timer} sekuntia!</h4>}
                 </div>
             </div>
-        )
-    }
+            <div className="row justify-content-center">
+                <div className="col-8">
+                    {timer > 0
+                        ? <TheGame id={quizz.id} handleAnswerChange={handleAnswerChange} />
+                        : <Results />}
+                </div>
+            </div>
+
+        </div>
+    )
 }
 export default Quizz
