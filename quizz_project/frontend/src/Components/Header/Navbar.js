@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import * as Icon from 'react-bootstrap-icons';
-import { overlay, navbar } from '../Styles/StyleObjects';
+import { overlay, navbar } from '../Common/StyleObjects';
 import Menu from './Menu';
 import Weather from './Weather';
+import { getToken } from '../Common/Auth/Sessions';
 
 export default function Navbar() {
 
@@ -14,7 +15,8 @@ export default function Navbar() {
     const toggleMenu = () => {
         let px = "";
         if (showMenu) px = "0";
-        else px = "150px";
+        else if (!showMenu && getToken()) px = "190px";
+        else px = "155px"
         document.getElementById("dropMenu").style.height = px;
         setShowMenu(!showMenu);
         setShake(1);

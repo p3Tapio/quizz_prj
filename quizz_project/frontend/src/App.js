@@ -7,7 +7,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Quizzes from './Views/QuizzList';
 import Quizz from './Views/Quizz';
 import Login from './Views/Login';
-import { Register } from './Views/Register';
+import Register from './Views/Register';
+import PrivateRoute from './Components/Common/Auth/PrivateRoute';
+import PublicRoute from './Components/Common/Auth/PublicRoute'
+import UserPage from './Views/UserPage';
+
 
 function App() {
   return (
@@ -15,14 +19,15 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/"><Home /></Route>
-          <Route exact path="/tietovisat"><Quizzes /></Route>
-          <Route path="/tietovisat/:id"><Quizz /></Route>
-          <Route path="/login"><Login /></Route>
-          <Route path="/register"><Register/></Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/tietovisat" component={Quizzes} />
+          <Route path="/tietovisat/:id" component={Quizz} />
+          <PublicRoute path="/login" component={Login} />
+          <PublicRoute path="/register" component={Register} />
+          <PrivateRoute path="/userpage" component={UserPage} />
         </Switch>
       </Router>
-    </div>
+    </div >
   );
 }
 

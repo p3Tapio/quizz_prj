@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import request from '../../Services/HttpRequests'
+import request from '../Common/HttpRequests'
 
 export const TheGame = ({ id }) => {
 
@@ -11,7 +11,7 @@ export const TheGame = ({ id }) => {
     }, [id])
 
     const handleAnswer = (ev) => {
-        if (questions.length > questionNo) setQuestionNo(questionNo + 1)
+        if (questions.length > questionNo +1) setQuestionNo(questionNo + 1)
         else {
 
         }
@@ -24,6 +24,7 @@ export const TheGame = ({ id }) => {
                     {questions[questionNo].question}
                 </div>
                 <div className="card-body">
+                    <button onClick={handleAnswer}> asfas</button>
                 </div>
             </div>
         )

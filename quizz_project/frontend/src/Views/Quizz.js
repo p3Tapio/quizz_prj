@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import request from '../Services/HttpRequests'
+import request from '../Components/Common/HttpRequests'
 import { TheGame } from '../Components/Quizz/TheGame';
 import { Results } from '../Components/Quizz/Results';
 

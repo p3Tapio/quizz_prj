@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const QuizzCard = ({ item, handleClickSurvey }) => {
     return (
-        <div className="row justify-content-center">    
-            <div className="col-8">
+        <div className="row">    
+            <div className="col-8 m-auto">
                 <div className="card bg-light m-1 quizzcardshadow m-3" style={{ width: "17rem" }}>
                     <div className="card-header">
                         <h4 className="card-title mt-3">{item.name}</h4>

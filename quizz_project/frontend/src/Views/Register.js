@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
-export const Register = () => {
+ const Register = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -56,3 +56,4 @@ export const Register = () => {
         </div>
     )
 }
+export default Register
