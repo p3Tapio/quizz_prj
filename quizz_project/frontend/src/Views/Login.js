@@ -18,7 +18,7 @@ const Login = () => {
             axios.post('http://localhost:8000/api/auth/login', body, config)
                 .then(res => {
                     setUserSession(res.data.token, res.data.user);       // LOGIN OK redirect    
-                    window.location.reload()                            // hot to redirect paremmin?
+                    window.location.reload()                            // how to redirect paremmin?
                 })
                 .catch(err => {
                     console.log('err.response.data', err.response.data) // TODO: wrong x, y 

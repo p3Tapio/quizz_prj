@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link, Redirect } from 'react-router-dom';
+import {setUserSession} from '../Components/Common/Auth/Sessions'
+import axios from 'axios';
 
- const Register = () => {
+const Register = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -9,9 +11,21 @@ import { Link, Redirect } from 'react-router-dom';
     const [email, setEmail] = useState('')
 
     const handleRegisterSubmit = (ev) => {
-
-
-        
+        ev.preventDefault()
+        if (username == "" || password == "" || password2 == "" || email == "") alert("Täytä kaikki kentät!")
+        else if (password !== password2) alert("Salasanat ei täsmää!")
+        else {
+            const body = JSON.stringify({ username, email, password });
+            const config = { headers: { 'Content-Type': 'application/json' } }
+            axios.post('http://localhost:8000/api/auth/register', body, config)
+                .then(res => {
+                    setUserSession(res.data.token, res.data.user);       // REG OK   
+                    window.location.reload()                         // how to redirect paremmin?
+                })
+                .catch(err => {
+                    console.log('err.response.data', err.response.data)
+                })
+        }
     }
     const handleInputChange = (ev) => {
 
@@ -20,7 +34,6 @@ import { Link, Redirect } from 'react-router-dom';
         else if (ev.target.name === 'password2') setPassword2(ev.target.value)
         else if (ev.target.name === 'email') setEmail(ev.target.value)
     }
-
     return (
         <div>
             <div className="col-lg-3 m-auto px-4">
