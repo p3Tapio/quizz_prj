@@ -9,25 +9,29 @@ const Quizz = () => {
     const { id } = useParams()
     const [quizz, setQuizz] = useState([])
     const [timer, setTimer] = useState()
+    const [right, setRight] = useState(0)
+    const [all, setAll] = useState()
     let timerStyle
 
     useEffect(() => {
-
         if (quizz.length === 0) {
             request.getQuizz(id).then(res => {
                 setQuizz(res)
                 setTimer(res.timer_secs)
             })
         }
-        const x = timer > 0 && setInterval(() => setTimer(timer - 1), 1000);
-        return () => clearInterval(x);
+        if (!all) {
+            const x = timer > 0 && setInterval(() => setTimer(timer - 1), 1000);
+            return () => clearInterval(x);
+        }
+    }, [id, timer, quizz.length, all])
 
-    }, [id, timer, quizz.length])
-
-    const handleAnswerChange = (ev) => {
-        console.log('ev.target.value', ev.target.value)
+    const handleGameOver = (all) => {
+        setAll(all)
     }
-
+    const handleCorrect = () => {
+        setRight(right +1) 
+    }
     timerStyle = timer > 10 ? timerStyle = {} : timerStyle = { color: 'red' }
 
     return (
@@ -37,14 +41,14 @@ const Quizz = () => {
                     <h2 className="focus-in-expand"> {quizz.name}</h2>
                 </div>
                 <div className="col-4">
-                    {timer === 0 ? <></> : <h4 className="mt-2" style={timerStyle}>Aikaa jäljellä {timer} sekuntia!</h4>}
+                    {timer === 0 || all ? <></> : <h4 className="mt-3" style={timerStyle}>Aikaa jäljellä {timer} sekuntia!</h4>}
                 </div>
             </div>
             <div className="row justify-content-center">
                 <div className="col-8">
-                    {timer > 0
-                        ? <TheGame id={quizz.id} handleAnswerChange={handleAnswerChange} />
-                        : <Results />}
+                    {timer > 0 && !all
+                        ? <TheGame id={quizz.id} handleCorrect={handleCorrect} handleGameOver={handleGameOver} />
+                        : <Results right={right} all={all} time={quizz.timer_secs - timer} />}
                 </div>
             </div>
 
@@ -52,3 +56,4 @@ const Quizz = () => {
     )
 }
 export default Quizz
+

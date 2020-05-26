@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const QuizzCard = ({ item, handleClickSurvey }) => {
+const QuizzCard = ({ item }) => {
     return (
         <div className="row">    
             <div className="col-8 m-auto">

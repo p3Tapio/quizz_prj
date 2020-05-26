@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Link, Redirect } from 'react-router-dom';
-import {setUserSession} from '../Components/Common/Auth/Sessions'
+import { Link } from 'react-router-dom';
+import { setUserSession } from '../Components/Common/Auth/Sessions'
 import axios from 'axios';
 
 const Register = () => {
@@ -12,7 +12,7 @@ const Register = () => {
 
     const handleRegisterSubmit = (ev) => {
         ev.preventDefault()
-        if (username == "" || password == "" || password2 == "" || email == "") alert("Täytä kaikki kentät!")
+        if (username === "" || password === "" || password2 === "" || email === "") alert("Täytä kaikki kentät!")
         else if (password !== password2) alert("Salasanat ei täsmää!")
         else {
             const body = JSON.stringify({ username, email, password });

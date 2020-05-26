@@ -1,12 +1,16 @@
 export const setUserSession = (token, user) => {
-    console.log('token', token)
-    console.log('user', user)
     sessionStorage.setItem('token', token);
     sessionStorage.setItem('user', JSON.stringify(user));
 }
 
 export const getToken = () => {
     return sessionStorage.getItem('token') || null;
+}
+
+export const getUser = () => {
+    const userStr = sessionStorage.getItem('user');
+    if (userStr) return JSON.parse(userStr);
+    else return null;
 }
 
 export const removeUserSession = () => {

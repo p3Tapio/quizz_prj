@@ -24,6 +24,12 @@ export const bgImage = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
 }
+export const btnStyle = {
+    width: '80%',
+    float: 'center',
+    margin: '2px',
+    padding: '5px'
+}
 
 
 // div#content{

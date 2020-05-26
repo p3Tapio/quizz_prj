@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class quizzes(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    owner = models.ForeignKey(User, related_name="leads", on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, related_name="quizzes", on_delete=models.CASCADE, null=True)
     description = models.CharField(max_length=500, blank=True)
     # public = models.BooleanField(default=False, null=False)
     timer_secs = models.IntegerField(default=60, null=False)
