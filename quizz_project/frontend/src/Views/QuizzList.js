@@ -12,7 +12,7 @@ const Quizzes = () => {
     return (
         <div className="container mt-4">
             <h2 className="focus-in-expand">Tietovisat!</h2> <hr />
-            <div className="col align-self-center">
+            <div className="align-self-left">
                 <div className="row" >
                     {quizzList.map((item) =>
                         <QuizzCard key={item.id} item={item} />

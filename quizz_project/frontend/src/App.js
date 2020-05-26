@@ -11,6 +11,7 @@ import Register from './Views/Register';
 import PrivateRoute from './Components/Common/Auth/PrivateRoute';
 import PublicRoute from './Components/Common/Auth/PublicRoute'
 import UserPage from './Views/UserPage';
+import CreateNewQuizz from './Views/CreateNewQuizz';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <PublicRoute path="/login" component={Login} />
           <PublicRoute path="/register" component={Register} />
           <PrivateRoute path="/userpage" component={UserPage} />
+          <PrivateRoute path="/luouusi" component={CreateNewQuizz} />
         </Switch>
       </Router>
     </div >

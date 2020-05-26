@@ -21,6 +21,9 @@ export default function Navbar() {
         setShowMenu(!showMenu);
         setShake(1);
     }
+    const closeMenu = () => {
+        alert('close menu')
+    }
     return (
         <div className="navbar navbar-expand-sm" style={navbar} onClick={toggleMenu}>
             <p className="MenuText" >
