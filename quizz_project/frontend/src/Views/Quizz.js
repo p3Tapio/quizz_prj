@@ -13,6 +13,7 @@ const Quizz = () => {
     const [timer, setTimer] = useState()
     const [right, setRight] = useState(0)
     const [all, setAll] = useState()
+
     let timerStyle
 
     useEffect(() => {
@@ -20,6 +21,7 @@ const Quizz = () => {
             request.getQuizz(id).then(res => {
                 setQuizz(res)
                 setTimer(res.timer_secs)
+                
             })
             axios.get(`http://localhost:8000/api/results/?quizz_id=${id}`)
                 .then(res => setResults(res.data))
@@ -53,7 +55,7 @@ const Quizz = () => {
                 <div className="col-8">
                     {timer > 0 && !all
                         ? <TheGame id={quizz.id} handleCorrect={handleCorrect} handleGameOver={handleGameOver} />
-                        : <Results right={right} all={all} time={quizz.timer_secs - timer} results={results} setResults={setResults} />}
+                        : <Results right={right} all={all} time={quizz.timer_secs - timer} results={results} setResults={setResults} id={quizz.id}/>}
                 </div>
             </div>
 

@@ -5,16 +5,18 @@ import axios from 'axios';
 import { getUser } from '../Common/Auth/Sessions'
 
 
-export const Results = ({ right, all, time, results, setResults }) => {
+export const Results = ({ right, all, time, results, setResults, id }) => {
 
     const [user, setUser] = useState()
     const [showMsg, setMsg] = useState(true)
+
 
     useEffect(() => {
 
         if (getUser()) setUser(getUser().username)
 
         if (results) {
+            console.log('results', results)
             setResults(results.sort((x, y) => y.score - x.score))
         }
     }, [results, setResults])
@@ -22,8 +24,9 @@ export const Results = ({ right, all, time, results, setResults }) => {
     const tallenna = () => {
 
         if (getUser()) {
+            console.log('id', id)
             const user = getUser().username
-            const id = parseInt(results[0].quizz_id)
+
             const config = { headers: { 'Content-Type': 'application/json' } }
             const body = JSON.stringify({
                 player: user,
@@ -43,12 +46,10 @@ export const Results = ({ right, all, time, results, setResults }) => {
                 <div className="row">
                     <div className="col-8 m-auto">
                         <h4 className="focus-in-expand">Sait {right}/{all} oikein! Aikaa sinulla kului {time} sekuntia!</h4>
-
                         {showMsg ?
                             getUser() ? <p>{user}, tallennetaanko tuloksesi? <strong className="ml-2 joo" onClick={tallenna}>Kyllä</strong></p>
-                                : <p>Alla näet kymmenen parhaiten pärjänneet pelaajat. Voit tallentaa oman nimimerkkisi kirjautumalla tai luomalla käyttäjätilin</p>
+                                : <p>Alla näet kymmenen parhaiten pärjänneet pelaajat. Voit tallentaa oman nimimerkkisi <Link to='/login'>kirjautumalla</Link> tai luomalla <Link to='/register'>käyttäjätilin</Link></p>
                             : <></>}
-
                         <Link to="/tietovisat" className="link">Palaa takaisin</Link>
                         <hr />
                         <ResultsTable results={results} />
