@@ -24,7 +24,3 @@ export const NameDescription = ({ handleChange, handleFirstSubmit }) => {
         </div>
     )
 }
-/* <div class="form-group">
-    <label>Example textarea</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-</div> */

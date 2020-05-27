@@ -39,7 +39,6 @@ export const Questions = ({ handleChange, handleQSubmit }) => {
                     <input type="text" className="form-control" id='oikein' onChange={handleChange} />
                 </div>
                 <div className="form-group text-right mt-4">
-                    {/* <button id="tallennaKysely" className="btn btn-outline-primary m-1">Lopeta</button> */}
                     <button onClick={handleSubmitClick} id="lisaaKysymys" className="btn btn-outline-primary m-1">Lisää kysymys</button>
                 </div>
             </form>

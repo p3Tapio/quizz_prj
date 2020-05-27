@@ -22,7 +22,6 @@ const Login = () => {
                 })
                 .catch(err => {
                     alert('Virhe!\nVäärä käyttäjätunnus tai salasana.')
-                    // console.log('err.response.data', err.response.data) // TODO: wrong x, y 
                 })
         } else {
             alert("Käyttäjätunnus tai salasana puuttuu!")   // TODO: siistimpi alert

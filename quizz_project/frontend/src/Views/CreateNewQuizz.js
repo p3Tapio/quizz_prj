@@ -5,7 +5,8 @@ import { Questions } from '../Components/UserPage/Questions';
 import { getUser, getToken } from '../Components/Common/Auth/Sessions'
 import axios from 'axios'
 
-// TODO .. tallennus eka arrayhyn tjsp jottei synny blankko tietovisoja ilman kysymyksiä yms.
+// TODO: tallennus eka arrayhyn tjsp jottei synny blankko tietovisoja ilman kysymyksiä yms. "Commit" vasta kun palikat koossa. 
+// TODO: siirrä tsekkaukset formien puolelle, nyt kentät tyhjenee myös ennen tallennusta vaikka se ei onnistuisi
 
 const CreateNewQuizz = () => {
 
@@ -36,7 +37,7 @@ const CreateNewQuizz = () => {
         else if (ev.target.id === 've') setVe(ev.target.value)
         else if (ev.target.id === 'oikein') setOikein(ev.target.value)
     }
-        // TODO: siirrä tsekkaukset formien puolelle, nyt kentät tyhjenee myös ennen tallennusta vaikka se ei onnistuisi
+
     const handleFirstSubmit = (ev) => {
 
         ev.preventDefault()
@@ -117,19 +118,6 @@ const CreateNewQuizz = () => {
         </div>
     )
 }
-// Uusi on http://localhost:8000/api/quizzes/ POST jaa bodyssä JSON (name,description, timer, mites owner hmm? ks r/django/tut)
+
 export default CreateNewQuizz
 
-
-
-                // header kuten yllä 
-                // { POST http://localhost:8000/api/questions/
-                //     "question": "testi kysmys?",
-                //     "option_a": "Joo",
-                //     "option_b": "Ei",
-                //     "option_c": null,
-                //     "option_d": null,
-                //     "option_e": null,
-                //     "correct_option": "d",
-                //     "quizz_id": 1
-                // }

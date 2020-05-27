@@ -4,6 +4,8 @@ import { getUser } from '../Components/Common/Auth/Sessions'
 import { Link } from 'react-router-dom'
 import { QuizzTable } from '../Components/UserPage/QuizzTable';
 
+// TODO: Aikaisemmin luotujen kyselyiden muokkaus 
+
 const UserPage = () => {
     const user = getUser()
 
@@ -47,4 +49,3 @@ const UserPage = () => {
 }
 export default UserPage
 
-// TODO: Aikaisemmin luotujen kyselyiden muokkaus 

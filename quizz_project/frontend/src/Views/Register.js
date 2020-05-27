@@ -23,7 +23,7 @@ const Register = () => {
                     window.location.reload()                         // how to redirect paremmin?
                 })
                 .catch(err => {
-                    console.log('err.response.data', err.response.data)
+                    alert("Virhe\n" + Object.values(err.response.data).flat())
                 })
         }
     }
