@@ -1,9 +1,15 @@
 import React from 'react'
 
-export const Questions = ({ handleChange, handleSubmit }) => {
+export const Questions = ({ handleChange, handleQSubmit }) => {
+    const handleSubmitClick = (ev) => {
+        ev.preventDefault()
+        document.getElementById("questions").reset()
+        handleQSubmit(ev.target.id) 
+    }
+
     return (
         <div className="col-lg-8 m-auto px-4 mt-4">
-            <form id="nameDescription">
+            <form id="questions">
                 <div className="form-group">
                     <label>Kysymys</label>
                     <input type="text" className="form-control" id='kysymys' onChange={handleChange} />
@@ -26,11 +32,15 @@ export const Questions = ({ handleChange, handleSubmit }) => {
                 </div>
                 <div className="form-group">
                     <label>Vaihtoehto E</label>
-                    <input type="text" className="form-control" id='nimi' onChange={handleChange} />
+                    <input type="text" className="form-control" id='ve' onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Oikea vastaus</label>
+                    <input type="text" className="form-control" id='oikein' onChange={handleChange} />
                 </div>
                 <div className="form-group text-right mt-4">
-                    <button id="tallennaKysely" className="btn btn-outline-primary m-1">Tallenna kysely</button>
-                    <button onClick={handleSubmit} type="reset" id="lisaaKysymys" className="btn btn-outline-primary m-1">Lisää kysymys</button>
+                    {/* <button id="tallennaKysely" className="btn btn-outline-primary m-1">Lopeta</button> */}
+                    <button onClick={handleSubmitClick} id="lisaaKysymys" className="btn btn-outline-primary m-1">Lisää kysymys</button>
                 </div>
             </form>
         </div>

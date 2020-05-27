@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 const url = 'http://localhost:8000/api/'
 
 const getQuizzes = () => axios.get(`${url}quizzes/`).then(res => res.data)

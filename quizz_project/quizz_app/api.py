@@ -5,14 +5,14 @@ from knox.models import AuthToken
 from .serializers import QuizzSerializer, QuestionSerializer, UserSerializer, RegisterSerializer, LoginSerializer
 import django_filters.rest_framework
 
-
+# TODO: permissions: POST vs GET (ks https://stackoverflow.com/questions/55549786/how-to-set-different-permission-classes-for-get-and-post-requests-using-the-same)
 class quizzViewSet(viewsets.ModelViewSet):
     queryset = quizzes.objects.all()
     permissions_classes = [
         permissions.AllowAny
     ]
     serializer_class = QuizzSerializer
-
+    filterset_fields = ('__all__')
 
 class questionViewSet(viewsets.ModelViewSet):
     queryset = questions.objects.all()

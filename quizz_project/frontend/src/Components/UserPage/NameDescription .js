@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const NameDescription = ({ handleChange, handleSubmit }) => {
+export const NameDescription = ({ handleChange, handleFirstSubmit }) => {
     return (
 
         <div className="col-lg-8 m-auto px-4 mt-4">
@@ -18,13 +18,13 @@ export const NameDescription = ({ handleChange, handleSubmit }) => {
                     <input type="text" className="form-control" id='kesto' onChange={handleChange} />
                 </div>
                 <div className="form-group text-right">
-                    <button onClick={handleSubmit} id="nameDescription" className="btn btn-outline-primary mt-3">Tallenna</button>
+                    <button onClick={handleFirstSubmit} id="nameDescription" className="btn btn-outline-primary mt-3">Tallenna</button>
                 </div>
             </form>
         </div>
     )
 }
-{/* <div class="form-group">
+/* <div class="form-group">
     <label>Example textarea</label>
     <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-</div> */}
+</div> */
