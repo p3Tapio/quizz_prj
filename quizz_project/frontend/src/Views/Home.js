@@ -11,8 +11,8 @@ const Home = () => {
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-2"></div>
-                    <div className=" jumboshadow jumbotron text-left col-8 focus-in-expand" style={{ width: '50vw' }} >
-                        <h1 className="text-center mb-4 jumboheader">Hello world!</h1>
+                    <div className=" jumboshadow jumbotron text-left col-8 " style={{ width: '50vw' }} >
+                        <h1 className="text-center mb-4 jumboheader focus-in-expand">Hello world!</h1>
                         <h2 className="jumbolead mb-3">Tämä on tietovisa-applikaatio!</h2>
                         <p className="jumbopara">
                         Sovelluksessa voi osallistua monivalintoihin perustuviin tietokilpailuihin ja kirjautumalla luoda omia tietovisoja

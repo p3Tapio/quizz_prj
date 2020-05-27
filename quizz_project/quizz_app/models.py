@@ -18,3 +18,8 @@ class questions(models.Model):
     option_d = models.CharField(max_length=100, null=True)
     option_e = models.CharField(max_length=100, null=True)
     correct_option = models.CharField(max_length=1, null=False)
+
+class results(models.Model):
+    quizz_id = models.ForeignKey(quizzes, on_delete=models.CASCADE)
+    player = models.CharField(max_length=100, null=True)
+    score = models.IntegerField(default=0, null=True)

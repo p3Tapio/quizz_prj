@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from quizz_app.models import quizzes, questions
+from quizz_app.models import quizzes, questions, results
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -13,6 +13,11 @@ class QuizzSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = questions
+        fields = '__all__'
+
+class ResultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = results
         fields = '__all__'
 
 
