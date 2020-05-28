@@ -5,7 +5,7 @@ import { getToken } from '../Components/Common/Auth/Sessions'
 
 const Home = () => {
     const  user = getToken() 
-    console.log('user', user)
+
     return (
         <div className="mt-4 ">
             <div className="container mt-4">

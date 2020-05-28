@@ -26,7 +26,7 @@ const UserPage = () => {
                 axios.delete(`http://localhost:8000/api/quizzes/${id}`).then(() => {
                     alert('Tietovisa poistettu!')
                     setQuizzes(quizzes.filter(x => x.id !== toDel.id))
-                }).catch(err => console.log('err', err))
+                }).catch(err => console.log('err.response.data', err.response.data))
             }
         }
     }

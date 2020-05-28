@@ -66,9 +66,7 @@ const CreateNewQuizz = () => {
     }
     const handleQSubmit = (id) => {
         if (id === 'lisaaKysymys') {
-            console.log('va', va)
-            console.log('oikein', oikein)
-            console.log('quizzId', quizzId)
+
             if (kysymys !== null && va !== null && vb !== null && oikein !== '') {
 
                 const token = getToken()

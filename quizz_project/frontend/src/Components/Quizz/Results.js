@@ -16,7 +16,6 @@ export const Results = ({ right, all, time, results, setResults, id }) => {
         if (getUser()) setUser(getUser().username)
 
         if (results) {
-            console.log('results', results)
             setResults(results.sort((x, y) => y.score - x.score))
         }
     }, [results, setResults])
@@ -24,7 +23,6 @@ export const Results = ({ right, all, time, results, setResults, id }) => {
     const tallenna = () => {
 
         if (getUser()) {
-            console.log('id', id)
             const user = getUser().username
 
             const config = { headers: { 'Content-Type': 'application/json' } }

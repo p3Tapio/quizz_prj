@@ -10,5 +10,6 @@ urlpatterns = [
     path('api/auth/login', LoginAPI.as_view()),
     path('api/auth/user', UserAPI.as_view()),
     path('api/', include('quizz_app.urls')),
-    path('', index, name="index"),
+    path('', index, name="index")
 ]
+

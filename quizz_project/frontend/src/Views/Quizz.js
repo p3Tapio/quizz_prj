@@ -37,7 +37,7 @@ const Quizz = () => {
     }
     const handleCorrect = () => {
         setRight(right + 1)
-        console.log('results', results)
+  
     }
     timerStyle = timer > 10 ? timerStyle = {} : timerStyle = { color: 'red' }
 
@@ -63,4 +63,3 @@ const Quizz = () => {
     )
 }
 export default Quizz
-
