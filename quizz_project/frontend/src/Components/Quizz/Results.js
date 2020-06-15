@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ResultsTable } from './ResultsTable';
+import { ResultsTable } from './resultstable';
 import axios from 'axios';
-import { getUser } from '../Common/Auth/Sessions'
+import { getUser } from '../common/auth/sessions'
 
 
 export const Results = ({ right, all, time, results, setResults, id }) => {
@@ -31,7 +31,7 @@ export const Results = ({ right, all, time, results, setResults, id }) => {
                 score: right,
                 quizz_id: id
             })
-            axios.post('http://localhost:8000/api/results/', body, config).then((res) => {
+            axios.post('https://shrouded-scrubland-85445.herokuapp.com/api/results/', body, config).then((res) => {
                 setResults(results.concat(res.data).sort((x, y) => y.score - x.score))
                 setMsg(false)
             }).catch(err => console.log('err.response.data', err.response.data))

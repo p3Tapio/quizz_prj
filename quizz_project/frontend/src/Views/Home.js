@@ -1,7 +1,7 @@
 import React from 'react'
 //import { bgImage } from '../Components/Styles/StyleObjects'
-import '../App.css';
-import { getToken } from '../Components/Common/Auth/Sessions'
+import '../app.css';
+import { getToken } from '../components/common/auth/sessions'
 
 const Home = () => {
     const  user = getToken() 

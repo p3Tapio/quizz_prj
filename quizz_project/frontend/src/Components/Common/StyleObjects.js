@@ -1,4 +1,4 @@
-import Background from '../Images/Background.png'
+import Background from '../images/background.png'
 // TODO: overlay ei pysy paikallaa skrollatessa 
 export const overlay = {
     marginTop: '72px',

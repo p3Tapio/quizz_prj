@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import QuizzCard from '../Components/Quizz/QuizzCard';
-import request from '../Components/Common/HttpRequests'
+import QuizzCard from '../components/quizz/quizzcard';
+import request from '../components/common/httprequests'
 
 const Quizzes = () => {
     const [quizzList, setQuizzList] = useState([])

@@ -1,17 +1,17 @@
 import React from 'react';
 import 'bootswatch/dist/flatly/bootstrap.min.css';
-import './App.css';
-import Home from './Views/Home';
-import Navbar from './Components/Header/Navbar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Quizzes from './Views/QuizzList';
-import Quizz from './Views/Quizz';
-import Login from './Views/Login';
-import Register from './Views/Register';
-import PrivateRoute from './Components/Common/Auth/PrivateRoute';
-import PublicRoute from './Components/Common/Auth/PublicRoute'
-import UserPage from './Views/UserPage';
-import CreateNewQuizz from './Views/CreateNewQuizz';
+import './app.css';
+import Home from './views/home';
+import Navbar from './components/header/navbar';
+import {  HashRouter as Router, Route, Switch } from 'react-router-dom'
+import Quizzes from './views/quizzlist';
+import Quizz from './views/quizz';
+import Login from './views/login';
+import Register from './views/register';
+import PrivateRoute from './components/common/auth/privateroute';
+import PublicRoute from './components/common/auth/publicroute'
+import UserPage from './views/userpage';
+import CreateNewQuizz from './views/createnewquizz';
 
 
 function App() {

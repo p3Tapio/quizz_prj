@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { setUserSession } from '../Components/Common/Auth/Sessions'
+import { setUserSession } from '../components/common/auth/sessions'
 import axios from 'axios';
 
 const Register = () => {
@@ -17,7 +17,7 @@ const Register = () => {
         else {
             const body = JSON.stringify({ username, email, password });
             const config = { headers: { 'Content-Type': 'application/json' } }
-            axios.post('http://localhost:8000/api/auth/register', body, config)
+            axios.post('https://shrouded-scrubland-85445.herokuapp.com/api/auth/register', body, config)
                 .then(res => {
                     setUserSession(res.data.token, res.data.user);       // REG OK   
                     window.location.reload()                         // how to redirect paremmin?

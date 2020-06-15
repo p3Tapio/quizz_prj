@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-bootstrap-icons": "^1.0.2-alpha3",
     "react-dom": "^16.13.1",
+    "react-hash-router": "^0.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },

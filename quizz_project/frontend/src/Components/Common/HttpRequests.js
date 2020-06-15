@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:8000/api/'
+const url = 'https://shrouded-scrubland-85445.herokuapp.com/api/'
 
 const getQuizzes = () => axios.get(`${url}quizzes/`).then(res => res.data)
 const getQuizz = (id) => axios.get(`${url}quizzes/${id}`).then(res => res.data)

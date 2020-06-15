@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getToken, removeUserSession } from '../Common/Auth/Sessions'
+import { getToken, removeUserSession } from '../common/auth/sessions'
 
 const Menu = () => {
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { getUser } from '../Components/Common/Auth/Sessions'
+import { getUser } from '../components/common/auth/sessions'
 import { Link } from 'react-router-dom'
-import { QuizzTable } from '../Components/UserPage/QuizzTable';
+import { QuizzTable } from '../components/userpage/quizzTable';
 
 // TODO: Aikaisemmin luotujen kyselyiden muokkaus 
 
@@ -13,7 +13,7 @@ const UserPage = () => {
 
     useEffect(() => {
         const userId = getUser().id
-        axios.get(`http://localhost:8000/api/quizzes/?owner=${userId}`)
+        axios.get(`https://shrouded-scrubland-85445.herokuapp.com/api/quizzes/?owner=${userId}`)
             .then(res => setQuizzes(res.data))
     }, [])
 
@@ -23,7 +23,7 @@ const UserPage = () => {
         const toDel = quizzes.find(x => x.id === id)
         if (toDel) {
             if (window.confirm(`Haluatko varmasti poistaa ${toDel.name} -tietovisan?`)) {
-                axios.delete(`http://localhost:8000/api/quizzes/${id}`).then(() => {
+                axios.delete(`https://shrouded-scrubland-85445.herokuapp.com/api/quizzes/${id}`).then(() => {
                     alert('Tietovisa poistettu!')
                     setQuizzes(quizzes.filter(x => x.id !== toDel.id))
                 }).catch(err => console.log('err.response.data', err.response.data))

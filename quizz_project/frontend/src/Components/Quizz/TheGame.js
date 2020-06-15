@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import request from '../Common/HttpRequests'
-import {btnStyle} from '../Common/StyleObjects'
+import request from '../common/httprequests'
+import {btnStyle} from '../common/styleobjects'
 
 export const TheGame = ({ id, handleCorrect, handleGameOver }) => {
 

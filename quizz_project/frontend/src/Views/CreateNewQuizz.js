@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { NameDescription } from '../Components/UserPage/NameDescription '
-import { Questions } from '../Components/UserPage/Questions';
-import { getUser, getToken } from '../Components/Common/Auth/Sessions'
+import { NameDescription } from '../components/userpage/namedescription '
+import { Questions } from '../components/userpage/questions';
+import { getUser, getToken } from '../components/common/auth/sessions'
 import axios from 'axios'
 
 // TODO: tallennus eka arrayhyn tjsp jottei synny blankko tietovisoja ilman kysymyksiä yms. "Commit" vasta kun palikat koossa. 
@@ -52,7 +52,7 @@ const CreateNewQuizz = () => {
                 if (token) config.headers['Authorization'] = `Token ${token}`
                 const body = JSON.stringify({ name: nimi, description: kuvaus, timer_secs: kesto, owner: id })
 
-                axios.post('http://localhost:8000/api/quizzes/', body, config)
+                axios.post('https://shrouded-scrubland-85445.herokuapp.com/api/quizzes/', body, config)
                     .then(res => {
                         alert("Tietovisa tallennettu!")
                         setQuizzId(res.data.id)
@@ -85,7 +85,7 @@ const CreateNewQuizz = () => {
                     quizz_id: quizzId
                 })
 
-                axios.post('http://localhost:8000/api/questions/', body, config)
+                axios.post('https://shrouded-scrubland-85445.herokuapp.com/api/questions/', body, config)
                     .then(() => {
                         alert("Kysymys tallennettu!")
                         setKysymyset(kysykset + 1)

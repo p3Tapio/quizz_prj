@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import * as Icon from 'react-bootstrap-icons';
-import { overlay, navbar } from '../Common/StyleObjects';
-import Menu from './Menu';
-import Weather from './Weather';
-import { getToken } from '../Common/Auth/Sessions';
+import { overlay, navbar } from '../common/styleobjects';
+import Menu from './menu';
+import Weather from './weather';
+import { getToken } from '../common/auth/sessions';
 
 export default function Navbar() {
 
