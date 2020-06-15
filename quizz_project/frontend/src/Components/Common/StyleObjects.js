@@ -5,7 +5,7 @@ export const overlay = {
     fontFamily: 'Lato, sans-serif',
     height: '0%',
     width: '100%',
-    position: 'fixed',
+    position: 'absolute',
     zIndex: '1',
     top: '0',
     left: '0',

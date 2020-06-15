@@ -29,7 +29,7 @@ export default function Navbar() {
                 <Icon.Justify size={30} className="ml-3 burgerShake fa-5x" onAnimationEnd={() => setShake(0)} shake={shake} />
             </p>
             <div id="dropMenu" style={overlay} onClick={toggleMenu}>
-                <Menu onClick={toggleMenu} />
+               {showMenu ?  <Menu onClick={toggleMenu} /> : <></>} 
             </div>
             <div className="float-right ml-auto text-right" style={{ color: 'white', fontSize:"10px" }}>
                     {(new Date(now)).toLocaleDateString('fi-FI', pvmForm)} &nbsp;
@@ -38,3 +38,5 @@ export default function Navbar() {
         </div>
     )
 }
+// (kokeile position:'absolute' 
+// ja linki ehdollisesti renderöityinä (ks kokousfron 0.1/2 ,jos tallessa))
