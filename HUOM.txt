@@ -1,1 +1,0 @@
-Tämä on dev versio ... buildi quizz_prj_herokuun ja sieltä ylös
